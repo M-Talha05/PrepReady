@@ -1,0 +1,1233 @@
+﻿/* ============================================================================
+   PrepReady — Theme  (UI redesign foundation)
+   "Trust & Authority" · navy + red identity · Lexend / Source Sans 3
+   External stylesheet (primary). Loaded AFTER Bootstrap so it overrides.
+   ============================================================================ */
+
+/* ---------------------------------------------------------------- Tokens --- */
+:root {
+    /* Brand identity (unchanged) */
+    --navy: #0b1f3a;
+    --navy-700: #12294b;
+    --navy-600: #1b3a63;
+    --red: #e63946;
+    --red-600: #c92d3a;
+    /* Neutral slate ramp */
+    --ink: #0f172a;
+    --muted: #475569;
+    --line: #e2e8f0;
+    --line-strong: #cbd5e1;
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    /* State colors */
+    --success: #059669;
+    --warn: #d97706;
+    --info: #0369a1;
+    --gold: #f59e0b;
+    /* Typography */
+    --font-head: 'Lexend', 'Segoe UI', system-ui, sans-serif;
+    --font-body: 'Source Sans 3', 'Segoe UI', system-ui, sans-serif;
+    /* Radius */
+    --r-sm: 6px;
+    --r: 12px;
+    --r-lg: 18px;
+    /* Shadows (soft depth) */
+    --sh-sm: 0 1px 2px rgba(15,23,42,.06), 0 1px 3px rgba(15,23,42,.10);
+    --sh-md: 0 4px 6px -1px rgba(15,23,42,.08), 0 2px 4px -2px rgba(15,23,42,.06);
+    --sh-lg: 0 14px 28px -8px rgba(15,23,42,.16), 0 6px 12px -6px rgba(15,23,42,.08);
+    /* Motion */
+    --t: 180ms ease;
+}
+
+/* ------------------------------------------------------------------ Base --- */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+}
+
+main {
+    min-height: 62vh;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: var(--font-head);
+    color: var(--navy);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+a {
+    color: var(--navy-600);
+    text-decoration: none;
+    transition: color var(--t);
+}
+
+    a:hover {
+        color: var(--red);
+        text-decoration: underline;
+    }
+
+p {
+    margin-bottom: 1rem;
+}
+
+.text-muted {
+    color: var(--muted) !important;
+}
+
+/* Readable line length for long-form lesson content */
+.pr-prose {
+    max-width: 70ch;
+}
+
+    .pr-prose p, .pr-prose li {
+        line-height: 1.75;
+    }
+
+/* --------------------------------------------------------------- Layout ---- */
+.pr-section {
+    padding: clamp(2.5rem, 5vw, 4.5rem) 0;
+}
+
+.pr-section-title {
+    font-family: var(--font-head);
+    font-weight: 700;
+    color: var(--navy);
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    margin-bottom: .75rem;
+}
+
+    .pr-section-title::after {
+        content: "";
+        display: block;
+        width: 56px;
+        height: 4px;
+        margin-top: .6rem;
+        background: var(--red);
+        border-radius: 999px;
+    }
+/* Centered section titles get a centered accent bar */
+.text-center .pr-section-title::after {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pr-eyebrow {
+    font-family: var(--font-head);
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-size: .78rem;
+    font-weight: 600;
+    color: var(--red);
+}
+
+.pr-lead {
+    font-size: 1.125rem;
+    color: var(--muted);
+}
+
+/* ------------------------------------------------------------- Skip link --- */
+.pr-skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    z-index: 2000;
+    background: var(--navy);
+    color: #fff;
+    padding: .6rem 1rem;
+    border-radius: 0 0 var(--r-sm) 0;
+}
+
+    .pr-skip-link:focus {
+        left: 0;
+        color: #fff;
+    }
+
+/* --------------------------------------------------------------- Navbar ---- */
+.pr-navbar {
+    background: var(--navy);
+    box-shadow: var(--sh-md);
+    padding-block: .55rem;
+}
+
+    .pr-navbar .nav-link {
+        color: rgba(255,255,255,.85);
+        font-family: var(--font-head);
+        font-weight: 500;
+        padding: .4rem .8rem;
+        border-radius: var(--r-sm);
+        transition: color var(--t), background var(--t);
+    }
+
+        .pr-navbar .nav-link:hover,
+        .pr-navbar .nav-link:focus {
+            color: #fff;
+            background: rgba(255,255,255,.12);
+            text-decoration: none;
+        }
+
+.pr-brand-text {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #fff;
+    letter-spacing: .2px;
+}
+
+.pr-brand-accent {
+    color: var(--red);
+}
+
+.pr-navbar .navbar-toggler {
+    border-color: rgba(255,255,255,.35);
+    padding: .35rem .55rem;
+}
+
+    .pr-navbar .navbar-toggler:focus {
+        box-shadow: 0 0 0 .2rem rgba(255,255,255,.25);
+    }
+
+.pr-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Heartbeat motif in the brand logo */
+.pr-pulse {
+    animation: prPulse 2.2s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes prPulse {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .35;
+    }
+}
+
+/* -------------------------------------------------------------- Buttons ---- */
+.pr-btn-accent,
+.pr-btn-navy,
+.pr-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    font-family: var(--font-head);
+    font-weight: 600;
+    line-height: 1.2;
+    border-radius: var(--r);
+    padding: .65rem 1.3rem;
+    border: 1.5px solid transparent;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background var(--t), color var(--t), box-shadow var(--t), border-color var(--t);
+}
+
+.pr-btn-accent {
+    background: var(--red);
+    color: #fff;
+    box-shadow: var(--sh-sm);
+}
+
+    .pr-btn-accent:hover, .pr-btn-accent:focus {
+        background: var(--red-600);
+        color: #fff;
+        box-shadow: var(--sh-md);
+        text-decoration: none;
+    }
+
+.pr-btn-navy {
+    background: var(--navy);
+    color: #fff;
+    box-shadow: var(--sh-sm);
+}
+
+    .pr-btn-navy:hover, .pr-btn-navy:focus {
+        background: var(--navy-700);
+        color: #fff;
+        box-shadow: var(--sh-md);
+        text-decoration: none;
+    }
+
+.pr-btn-outline {
+    background: transparent;
+    color: var(--navy);
+    border-color: var(--line-strong);
+}
+
+    .pr-btn-outline:hover, .pr-btn-outline:focus {
+        background: var(--navy);
+        color: #fff;
+        border-color: var(--navy);
+        text-decoration: none;
+    }
+
+/* Light Bootstrap button cohesion */
+.btn {
+    border-radius: var(--r-sm);
+    font-family: var(--font-head);
+    font-weight: 500;
+}
+
+/* ---------------------------------------------------------------- Cards ---- */
+.pr-cat-card,
+.card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    box-shadow: var(--sh-sm);
+}
+
+.pr-cat-card {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform var(--t), box-shadow var(--t), border-color var(--t);
+}
+    /* Lift only on interactive cards / hover — transform doesn't reflow neighbors */
+    .pr-cat-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--sh-lg);
+        border-color: var(--line-strong);
+    }
+
+    a.pr-cat-card, .pr-cat-card a.stretched-link {
+        text-decoration: none;
+    }
+
+        a.pr-cat-card:hover {
+            text-decoration: none;
+        }
+
+.pr-stat-num {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    line-height: 1;
+    color: var(--navy);
+}
+
+/* Small uppercase metric label */
+.pr-stat-label {
+    font-size: .8rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+/* --------------------------------------------------------------- Badges ---- */
+.pr-partner {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: .5rem 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    box-shadow: var(--sh-sm);
+}
+
+.badge {
+    font-family: var(--font-head);
+    font-weight: 600;
+    letter-spacing: .2px;
+}
+
+/* ----------------------------------------------------------------- Hero ---- */
+.pr-hero {
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-700) 55%, var(--navy-600) 100%);
+    padding: clamp(3rem, 7vw, 6rem) 0;
+}
+
+    .pr-hero h1, .pr-hero .pr-section-title {
+        color: #fff;
+    }
+
+        .pr-hero .pr-section-title::after {
+            background: var(--red);
+        }
+
+    .pr-hero .pr-lead {
+        color: rgba(255,255,255,.85);
+    }
+
+    .pr-hero .pr-eyebrow {
+        color: #fff;
+        opacity: .9;
+    }
+    /* soft radial glow accent */
+    .pr-hero::after {
+        content: "";
+        position: absolute;
+        width: 420px;
+        height: 420px;
+        right: -120px;
+        top: -120px;
+        background: radial-gradient(circle, rgba(230,57,70,.25) 0%, rgba(230,57,70,0) 70%);
+        pointer-events: none;
+    }
+
+/* ---------------------------------------------------------------- Forms ---- */
+.form-control, .form-select {
+    border-radius: var(--r-sm);
+    border-color: var(--line-strong);
+    padding: .55rem .8rem;
+    color: var(--ink);
+}
+
+    .form-control:focus, .form-select:focus {
+        border-color: var(--red);
+        box-shadow: 0 0 0 3px rgba(230,57,70,.18);
+    }
+
+.form-label {
+    font-weight: 600;
+    color: var(--navy);
+}
+
+/* Inline validator text (ASP.NET validators use .text-danger) */
+.text-danger.small {
+    display: inline-block;
+    margin-top: .25rem;
+}
+
+/* --------------------------------------------------------------- Tables ---- */
+.table {
+    --bs-table-bg: transparent;
+    color: var(--ink);
+}
+
+    .table thead th {
+        background: var(--navy);
+        color: #fff;
+        font-family: var(--font-head);
+        font-weight: 600;
+        border-color: var(--navy-700);
+        white-space: nowrap;
+    }
+
+    .table > :not(caption) > * > * {
+        padding: .7rem .75rem;
+    }
+
+    .table.table-striped > tbody > tr:nth-of-type(odd) > * {
+        --bs-table-accent-bg: #f1f5f9;
+    }
+
+/* -------------------------------------------------------------- Progress --- */
+.progress {
+    background: #e2e8f0;
+    border-radius: 999px;
+    height: .75rem;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: var(--red);
+}
+
+/* --------------------------------------------------------------- Alerts ---- */
+.alert {
+    border-radius: var(--r);
+    border: 1px solid var(--line);
+}
+
+.alert-success {
+    background: #ecfdf5;
+    border-color: #a7f3d0;
+    color: #065f46;
+}
+
+.alert-danger {
+    background: #fef2f2;
+    border-color: #fecaca;
+    color: #991b1b;
+}
+
+.alert-warning {
+    background: #fffbeb;
+    border-color: #fde68a;
+    color: #92400e;
+}
+
+.alert-info {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+    color: #1e40af;
+}
+
+/* --------------------------------------------------------------- Modal ----- */
+.modal-content {
+    border-radius: var(--r-lg);
+    border: none;
+    box-shadow: var(--sh-lg);
+}
+
+/* --------------------------------------------------------------- Footer ---- */
+.pr-footer {
+    background: var(--navy);
+    color: rgba(255,255,255,.8);
+    padding: 3rem 0 1.5rem;
+    margin-top: 3rem;
+}
+
+.pr-footer-title {
+    color: #fff;
+    font-family: var(--font-head);
+}
+
+.pr-footer-text {
+    color: rgba(255,255,255,.7);
+    font-size: .925rem;
+}
+
+.pr-tagline {
+    color: var(--red);
+    font-family: var(--font-head);
+    font-weight: 600;
+    letter-spacing: .4px;
+}
+
+.pr-footer-links {
+    margin: 0;
+}
+
+    .pr-footer-links li {
+        margin-bottom: .4rem;
+    }
+
+    .pr-footer-links a {
+        color: rgba(255,255,255,.75);
+    }
+
+        .pr-footer-links a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+.pr-footer-rule {
+    border-color: rgba(255,255,255,.15);
+    margin: 2rem 0 1.25rem;
+}
+
+.pr-footer-copy {
+    color: rgba(255,255,255,.55);
+    font-size: .85rem;
+}
+
+/* ------------------------------------------------------- Focus & Motion ---- */
+a:focus-visible,
+.btn:focus-visible,
+button:focus-visible,
+.pr-btn-accent:focus-visible,
+.pr-btn-navy:focus-visible,
+.pr-btn-outline:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/* -------------------------------------------------- Auth & system pages --- */
+.pr-auth-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(11,31,58,.06);
+    color: var(--navy);
+}
+
+    .pr-auth-icon svg {
+        width: 30px;
+        height: 30px;
+    }
+
+.pr-status-code {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: clamp(3rem, 12vw, 6rem);
+    line-height: 1;
+    color: var(--navy);
+}
+
+.pr-narrow {
+    max-width: 560px;
+    margin-inline: auto;
+}
+
+
+/* ----------------------------------------------------- Learning pages ----- */
+/* Category / meta tags */
+.pr-tag {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(11,31,58,.08);
+    color: var(--navy);
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: .72rem;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    padding: .3rem .7rem;
+    border-radius: 999px;
+}
+
+.pr-tag-red {
+    background: rgba(230,57,70,.12);
+    color: var(--red);
+}
+
+/* Multi-line text truncation for even card heights */
+.pr-clamp-2, .pr-clamp-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.pr-clamp-2 {
+    -webkit-line-clamp: 2;
+}
+
+.pr-clamp-3 {
+    -webkit-line-clamp: 3;
+}
+
+/* Course-card meta row */
+.pr-card-meta {
+    color: var(--muted);
+    font-size: .85rem;
+}
+
+/* Numbered lesson list */
+.pr-lesson-list .list-group-item {
+    border-color: var(--line);
+    padding: .85rem 1rem;
+}
+
+/* Lesson reader */
+.pr-lesson-body {
+    max-width: 70ch;
+}
+
+    .pr-lesson-body p, .pr-lesson-body li {
+        line-height: 1.8;
+    }
+
+    .pr-lesson-body h2, .pr-lesson-body h3 {
+        margin-top: 1.5rem;
+    }
+
+.pr-lesson-card iframe,
+.pr-lesson-card video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 0;
+    border-radius: var(--r);
+    box-shadow: var(--sh-sm);
+    margin-bottom: 1.25rem;
+}
+
+.pr-lesson-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--r);
+}
+
+/* Quiz call-out */
+.pr-quiz-cta {
+    background: #eef2f7;
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    padding: 1rem 1.25rem;
+}
+
+/* Sticky sidebar on large screens */
+@media (min-width: 992px) {
+    .pr-sticky-lg {
+        position: sticky;
+        top: 1.5rem;
+    }
+}
+
+
+/* --------------------------------------------------------- Member area ---- */
+.pr-streak-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    background: rgba(230,57,70,.10);
+    color: var(--red);
+    font-weight: 600;
+    font-family: var(--font-head);
+    border-radius: 999px;
+    padding: .3rem .85rem;
+    font-size: .9rem;
+}
+
+.pr-ach-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    line-height: 1;
+    background: rgba(11,31,58,.06);
+    margin: 0 auto .75rem;
+}
+
+.pr-tier3-icon {
+    width: 46px;
+    height: 46px;
+    color: var(--gold);
+}
+
+
+/* ----------------------------------------------- Public credential pages -- */
+.pr-rank {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    color: var(--navy);
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: .9rem;
+}
+
+.pr-rank-1 {
+    background: #fde68a;
+    color: #92400e;
+}
+/* gold   */
+.pr-rank-2 {
+    background: #e5e7eb;
+    color: #374151;
+}
+/* silver */
+.pr-rank-3 {
+    background: #fed7aa;
+    color: #9a3412;
+}
+/* bronze */
+
+.pr-verify-head {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+}
+
+.pr-verify-icon {
+    width: 46px;
+    height: 46px;
+    color: var(--navy);
+    flex: 0 0 auto;
+}
+
+.pr-detail dt {
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.pr-detail dd {
+    color: var(--ink);
+}
+
+.pr-qr-box {
+    display: inline-block;
+    padding: .75rem;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    box-shadow: var(--sh-sm);
+}
+
+
+/* -------------------------------------------------------- Staff consoles -- */
+.pr-admin-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+    margin: .75rem 0 1.5rem;
+    padding-bottom: .75rem;
+    border-bottom: 1px solid var(--line);
+}
+
+    .pr-admin-nav a {
+        font-family: var(--font-head);
+        font-weight: 500;
+        font-size: .9rem;
+        color: var(--muted);
+        text-decoration: none;
+        padding: .4rem .85rem;
+        border-radius: var(--r-sm);
+        transition: background var(--t), color var(--t);
+    }
+
+        .pr-admin-nav a:hover {
+            background: #f1f5f9;
+            color: var(--navy);
+            text-decoration: none;
+        }
+
+        .pr-admin-nav a.active {
+            background: var(--navy);
+            color: #fff;
+        }
+
+
+
+/* ============================================================================
+   UI-8 — Polish, responsive & accessibility
+   ============================================================================ */
+
+/* Images never overflow their container */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Tighter rhythm + smaller headings on phones */
+@media (max-width: 575.98px) {
+    .pr-section {
+        padding: 2rem 0;
+    }
+
+    .container {
+        padding-left: 1.1rem;
+        padding-right: 1.1rem;
+    }
+
+    .pr-section-title {
+        font-size: 1.5rem;
+    }
+
+    .pr-stat-num {
+        font-size: 1.8rem;
+    }
+}
+
+/* Admin tab-bar: scroll sideways on small screens instead of wrapping messily */
+@media (max-width: 575.98px) {
+    .pr-admin-nav {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+        .pr-admin-nav a {
+            white-space: nowrap;
+        }
+}
+
+/* Disabled buttons clearly read as disabled */
+.pr-btn-accent:disabled, .pr-btn-navy:disabled, .pr-btn-outline:disabled,
+.pr-btn-accent.disabled, .pr-btn-navy.disabled, .pr-btn-outline.disabled,
+a.pr-btn-accent[aria-disabled="true"] {
+    opacity: .55;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Comfortable tap targets for small action buttons on touch devices */
+@media (hover: none) {
+    .btn-sm {
+        padding-top: .4rem;
+        padding-bottom: .4rem;
+    }
+}
+
+/* Keep keyboard focus visible inside cards & tables */
+.table a:focus-visible, .pr-cat-card a:focus-visible {
+    outline-offset: 3px;
+}
+
+/* Print: drop site chrome so pages like Verify / certificates print cleanly */
+@media print {
+    .pr-navbar, .pr-footer, .pr-skip-link, .pr-admin-nav {
+        display: none !important;
+    }
+
+    body {
+        background: #fff;
+    }
+
+    .card, .pr-cat-card {
+        box-shadow: none;
+        border-color: #ccc;
+    }
+
+    a[href]::after {
+        content: "";
+    }
+}
+
+/* ===== EX-2: profile + navbar avatars ===== */
+.pr-avatar-lg {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--surface);
+    box-shadow: var(--sh-md);
+    background: var(--bg);
+    flex: 0 0 auto;
+}
+
+.pr-avatar-fallback {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--navy);
+    background: var(--line);
+}
+
+    .pr-avatar-fallback svg {
+        width: 38px;
+        height: 38px;
+    }
+
+.pr-nav-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255,255,255,.35);
+    vertical-align: middle;
+}
+
+.pr-nav-avatar-fallback {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,.15);
+    color: #fff;
+}
+
+/* ===== EX-4: notifications + user menu (refined) ===== */
+.pr-note-menu {
+    width: 344px;
+    max-width: 92vw;
+    padding: 0;
+    overflow: hidden;
+}
+
+    .pr-note-menu .dropdown-header {
+        padding: .7rem 1rem;
+        font-family: var(--font-head);
+        font-weight: 600;
+        color: var(--navy);
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+    }
+
+.pr-note-scroll {
+    max-height: 360px;
+    overflow-y: auto;
+}
+
+.pr-note-item {
+    position: relative;
+    white-space: normal;
+    padding: .7rem 1rem .7rem 1.6rem;
+    border-bottom: 1px solid var(--line);
+}
+
+    .pr-note-item:last-of-type {
+        border-bottom: 0;
+    }
+
+.pr-note-unread {
+    background: #eff6ff;
+}
+
+    .pr-note-unread:hover {
+        background: #e0efff;
+    }
+
+    .pr-note-unread::before {
+        content: "";
+        position: absolute;
+        left: .55rem;
+        top: 1.05rem;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--red);
+    }
+
+.pr-note-title {
+    font-weight: 600;
+    color: var(--ink);
+    font-size: .85rem;
+}
+
+.pr-note-msg {
+    color: var(--muted);
+    font-size: .8rem;
+    line-height: 1.35;
+}
+
+.pr-note-time {
+    color: var(--muted);
+    font-size: .7rem;
+    margin-top: .15rem;
+}
+
+.pr-note-foot {
+    padding: .55rem;
+    text-align: center;
+    border-top: 1px solid var(--line);
+    background: var(--bg);
+}
+
+    .pr-note-foot a {
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+/* User dropdown */
+.pr-user-menu {
+    min-width: 230px;
+}
+
+.pr-user-toggle {
+    cursor: pointer;
+}
+
+.pr-navbar .dropdown-menu {
+    border: 1px solid var(--line);
+    box-shadow: var(--sh-lg);
+    border-radius: var(--r);
+}
+
+.pr-navbar .dropdown-item {
+    font-family: var(--font-body);
+    font-size: .92rem;
+    padding: .5rem 1rem;
+}
+
+    .pr-navbar .dropdown-item:hover {
+        background: #f1f5f9;
+        color: var(--navy);
+    }
+
+/* ===== EX-5: ratings & reviews ===== */
+.pr-stars {
+    color: var(--gold);
+    letter-spacing: 1px;
+}
+
+.pr-avg-rating {
+    font-size: 1.1rem;
+}
+
+.pr-card-rating {
+    font-size: .95rem;
+}
+
+.pr-review-item {
+    padding: .9rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+    .pr-review-item:last-of-type {
+        border-bottom: 0;
+    }
+
+/* ===== EX-7: report bar charts ===== */
+.pr-bar-row {
+    display: grid;
+    grid-template-columns: 110px 1fr 46px;
+    align-items: center;
+    gap: .6rem;
+    margin-bottom: .55rem;
+}
+
+.pr-bar-label {
+    font-size: .85rem;
+    color: var(--muted);
+}
+
+.pr-bar-track {
+    background: var(--line);
+    border-radius: 999px;
+    height: 14px;
+    overflow: hidden;
+}
+
+.pr-bar-fill {
+    display: block;
+    height: 100%;
+    background: var(--navy);
+    border-radius: 999px;
+}
+
+.pr-bar-val {
+    font-weight: 600;
+    text-align: right;
+}
+
+/* ===== EX-8b: support conversations ===== */
+.pr-chat {
+    display: flex;
+    flex-direction: column;
+    gap: .85rem;
+}
+
+.pr-bubble {
+    max-width: 80%;
+    padding: .7rem 1rem;
+    border-radius: var(--r);
+    box-shadow: var(--sh-sm);
+}
+
+.pr-bubble-meta {
+    font-size: .72rem;
+    color: var(--muted);
+    margin-bottom: .2rem;
+    font-weight: 600;
+}
+
+.pr-bubble-body {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.pr-bubble-user {
+    align-self: flex-start;
+    background: #fff;
+    border: 1px solid var(--line);
+}
+
+.pr-bubble-staff {
+    align-self: flex-end;
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+}
+
+    .pr-bubble-staff .pr-bubble-meta {
+        color: var(--info);
+    }
+
+/* ===== EX-9: bookmarks / my learning ===== */
+.pr-bm-btn {
+    position: absolute;
+    top: .85rem;
+    right: .85rem;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    box-shadow: var(--sh-sm);
+    transition: var(--t);
+}
+
+    .pr-bm-btn:hover {
+        color: var(--red);
+        border-color: var(--red);
+    }
+
+    .pr-bm-btn.saved {
+        color: var(--red);
+        border-color: var(--red);
+    }
+
+.pr-learn-bar {
+    height: 10px;
+}
+
+/* ===== EX-11 fix: force footer legal links white ===== */
+.pr-footer .pr-footer-legal {
+    color: #ffffff !important;
+    font-size: 1rem;
+}
+
+    .pr-footer .pr-footer-legal a,
+    .pr-footer .pr-footer-legal a:link,
+    .pr-footer .pr-footer-legal a:visited {
+        color: #ffffff !important;
+        text-decoration: none;
+    }
+
+        .pr-footer .pr-footer-legal a:hover,
+        .pr-footer .pr-footer-legal a:focus {
+            color: #e63946 !important;
+            text-decoration: underline;
+        }
+
+/* ===== EX-13: social share buttons ===== */
+.pr-share {
+    row-gap: .35rem;
+}
+
+.pr-share-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 1px solid var(--line, #e2e8f0);
+    border-radius: 50%;
+    background: var(--surface, #fff);
+    color: var(--navy, #0b1f3a);
+    cursor: pointer;
+    transition: var(--t, 180ms ease);
+}
+
+    .pr-share-btn:hover, .pr-share-btn:focus-visible {
+        background: var(--navy, #0b1f3a);
+        color: #fff;
+        border-color: var(--navy, #0b1f3a);
+    }
+
+    .pr-share-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+.pr-share-feedback {
+    font-size: .8rem;
+    color: var(--success, #059669);
+    font-weight: 600;
+}

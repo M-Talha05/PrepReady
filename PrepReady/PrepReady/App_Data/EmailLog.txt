@@ -1,0 +1,273 @@
+================ 6/15/2026 4:30:43 PM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Verify your PrepReady account
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Welcome to PrepReady, Mohamed Afaz!</p><p>Please verify your email by clicking the link below:</p><p><a href="https://localhost:44353/Account/VerifyEmail.aspx?token=e24803828ace438bb4951129c25858a9">https://localhost:44353/Account/VerifyEmail.aspx?token=e24803828ace438bb4951129c25858a9</a></p>
+
+================ 6/19/2026 11:38:20 PM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Your Tier 2 pathway is unlocked
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Your Tier 2 Certificate of Completion pathway is now available. Complete the refresher and re-sit the exam (score 95% or higher) to upgrade.</p>
+
+================ 6/19/2026 11:39:04 PM ================
+TO: officer@prepready.local
+SUBJECT: New deployment application
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>A learner has applied for community deployment.</p><p>Field: Home Fire Safety & Escape<br/>Deployment Code: DEP-A7ED93E1</p><p>Review it in the Officer Portal.</p>
+
+================ 6/19/2026 11:39:34 PM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Your deployment was accepted
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>An officer has accepted your community deployment. Service sessions will now be logged and signed off.</p>
+
+================ 6/19/2026 11:39:58 PM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Your government-recognised badge has been awarded!
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Congratulations! You have completed verified community service and earned your Tier 3 Government-Recognised Badge. You are now listed in the National Recognised Responders Registry.</p>
+
+================ 6/29/2026 11:46:39 PM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Reset your PrepReady password
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>We received a request to reset your PrepReady password.</p><p><a href="https://localhost:44353/Account/ResetPassword.aspx?token=1d76db21fe3b44a39562ed0ba80d9201">Click here to reset your password</a>.</p><p>This link expires in 1 hour. If you did not request this, you can safely ignore this email.</p>
+
+================ 6/29/2026 11:47:31 PM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Reset your PrepReady password
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>We received a request to reset your PrepReady password.</p><p><a href="https://localhost:44353/Account/ResetPassword.aspx?token=c877d552234043559f75f36ca6c9f640">Click here to reset your password</a>.</p><p>This link expires in 1 hour. If you did not request this, you can safely ignore this email.</p>
+
+================ 6/29/2026 11:50:46 PM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Reset your PrepReady password
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>We received a request to reset your PrepReady password.</p><p><a href="https://localhost:44353/Account/ResetPassword.aspx?token=1aee7a13f3c24295ab65620160b2d178">Click here to reset your password</a>.</p><p>This link expires in 1 hour. If you did not request this, you can safely ignore this email.</p>
+
+================ 6/29/2026 11:51:21 PM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Reset your PrepReady password
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>We received a request to reset your PrepReady password.</p><p><a href="https://localhost:44353/Account/ResetPassword.aspx?token=a86b401f1ea94e24b9145ceb4dda8ee5">Click here to reset your password</a>.</p><p>This link expires in 1 hour. If you did not request this, you can safely ignore this email.</p>
+
+================ 6/29/2026 11:53:04 PM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Reset your PrepReady password
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>We received a request to reset your PrepReady password.</p><p><a href="https://localhost:44353/Account/ResetPassword.aspx?token=9c6fa0b946e04f62aed3976f21ac0b25">Click here to reset your password</a>.</p><p>This link expires in 1 hour. If you did not request this, you can safely ignore this email.</p>
+
+================ 6/29/2026 11:57:14 PM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Reset your PrepReady password
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>We received a request to reset your PrepReady password.</p><p><a href="https://localhost:44353/Account/ResetPassword.aspx?token=9d7d0d0fe7824a8a95084c0d37bb457b">Click here to reset your password</a>.</p><p>This link expires in 1 hour. If you did not request this, you can safely ignore this email.</p>
+
+================ 6/30/2026 12:07:37 PM ================
+TO: user1@gmail.com
+SUBJECT: Verify your PrepReady account
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Welcome to PrepReady, user1!</p><p>Please verify your email by clicking the link below:</p><p><a href="https://localhost:44353/Account/VerifyEmail.aspx?token=c818893751094b229dfd11bde511d88d">https://localhost:44353/Account/VerifyEmail.aspx?token=c818893751094b229dfd11bde511d88d</a></p>
+
+================ 6/30/2026 12:08:39 PM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Reset your PrepReady password
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>We received a request to reset your PrepReady password.</p><p><a href="https://localhost:44353/Account/ResetPassword.aspx?token=43a13e9f1b0c4d07ab3262fd74f97cb5">Click here to reset your password</a>.</p><p>This link expires in 1 hour. If you did not request this, you can safely ignore this email.</p>
+
+================ 6/30/2026 1:30:58 PM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Reset your PrepReady password
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>We received a request to reset your PrepReady password.</p><p><a href="https://localhost:44353/Account/ResetPassword.aspx?token=c16b0f6aecd94c189951974fdc754dbb">Click here to reset your password</a>.</p><p>This link expires in 1 hour. If you did not request this, you can safely ignore this email.</p>
+
+================ 6/30/2026 1:31:28 PM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Reset your PrepReady password
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>We received a request to reset your PrepReady password.</p><p><a href="https://localhost:44353/Account/ResetPassword.aspx?token=4b09c1a03f824dfba29abf2df5a3f60d">Click here to reset your password</a>.</p><p>This link expires in 1 hour. If you did not request this, you can safely ignore this email.</p>
+
+================ 6/30/2026 4:01:23 PM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: We received your message — PrepReady
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Hi Muhammad Talha,</p><p>Thanks for contacting PrepReady. We've received your message and will reply soon.</p><p><em>Subject:</em> test</p>
+
+================ 6/30/2026 4:49:11 PM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: We received your message — PrepReady
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Hi Muhammad Talha,</p><p>Thanks for contacting PrepReady. We've received your message and will reply to this email address soon.</p><p><em>Subject:</em> test</p>
+
+================ 6/30/2026 4:50:17 PM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Reply to your message — PrepReady
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Hi Muhammad Talha,</p><p>test</p><p><em>Re:</em> test</p>
+
+================ 7/7/2026 2:22:37 PM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Reset your PrepReady password
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>We received a request to reset your PrepReady password.</p><p><a href="https://localhost:44353/Account/ResetPassword.aspx?token=a2a7c719866f44cabec6b4bccfe8524f">Click here to reset your password</a>.</p><p>This link expires in 1 hour. If you did not request this, you can safely ignore this email.</p>
+
+================ 7/10/2026 4:38:50 PM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Your PrepReady sign-in code
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Your one-time sign-in code is <strong style='font-size:1.3em; letter-spacing:2px;'>686291</strong>.</p><p>It expires in 5 minutes. If you didn't try to sign in, you can ignore this email.</p>
+
+================ 7/10/2026 4:40:36 PM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Your PrepReady sign-in code
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Your one-time sign-in code is <strong style='font-size:1.3em; letter-spacing:2px;'>463129</strong>.</p><p>It expires in 5 minutes. If you didn't try to sign in, you can ignore this email.</p>
+
+================ 7/10/2026 4:40:46 PM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Your PrepReady sign-in code
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Your new one-time sign-in code is <strong style='font-size:1.3em; letter-spacing:2px;'>433881</strong>.</p><p>It expires in 5 minutes.</p>
+
+================ 7/10/2026 4:40:55 PM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Your PrepReady sign-in code
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Your one-time sign-in code is <strong style='font-size:1.3em; letter-spacing:2px;'>293273</strong>.</p><p>It expires in 5 minutes. If you didn't try to sign in, you can ignore this email.</p>
+
+================ 7/12/2026 8:50:58 AM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Your PrepReady sign-in code
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Your one-time sign-in code is <strong style='font-size:1.3em; letter-spacing:2px;'>718574</strong>.</p><p>It expires in 5 minutes. If you didn't try to sign in, you can ignore this email.</p>
+
+================ 7/12/2026 9:00:31 AM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Your PrepReady sign-in code
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Your one-time sign-in code is <strong style='font-size:1.3em; letter-spacing:2px;'>977594</strong>.</p><p>It expires in 5 minutes. If you didn't try to sign in, you can ignore this email.</p>
+
+================ 7/12/2026 9:19:32 AM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Your PrepReady sign-in code
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Your one-time sign-in code is <strong style='font-size:1.3em; letter-spacing:2px;'>633981</strong>.</p><p>It expires in 5 minutes. If you didn't try to sign in, you can ignore this email.</p>
+
+================ 7/12/2026 9:24:44 AM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Your PrepReady sign-in code
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Your one-time sign-in code is <strong style='font-size:1.3em; letter-spacing:2px;'>457460</strong>.</p><p>It expires in 5 minutes. If you didn't try to sign in, you can ignore this email.</p>
+
+================ 7/12/2026 9:38:30 AM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Your PrepReady sign-in code
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Your one-time sign-in code is <strong style='font-size:1.3em; letter-spacing:2px;'>320970</strong>.</p><p>It expires in 5 minutes. If you didn't try to sign in, you can ignore this email.</p>
+
+================ 7/12/2026 9:39:47 AM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Your PrepReady sign-in code
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Your one-time sign-in code is <strong style='font-size:1.3em; letter-spacing:2px;'>066861</strong>.</p><p>It expires in 5 minutes. If you didn't try to sign in, you can ignore this email.</p>
+
+================ 7/12/2026 9:44:28 AM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Your PrepReady sign-in code
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Your one-time sign-in code is <strong style='font-size:1.3em; letter-spacing:2px;'>583450</strong>.</p><p>It expires in 5 minutes. If you didn't try to sign in, you can ignore this email.</p>
+
+================ 7/12/2026 10:28:20 AM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Your PrepReady sign-in code
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Your one-time sign-in code is <strong style='font-size:1.3em; letter-spacing:2px;'>867550</strong>.</p><p>It expires in 5 minutes. If you didn't try to sign in, you can ignore this email.</p>
+
+================ 7/12/2026 10:31:47 AM ================
+TO: testy@gmail.com
+SUBJECT: Verify your PrepReady account
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Welcome to PrepReady, test!</p><p>Please verify your email by clicking the link below:</p><p><a href="https://localhost:44353/Account/VerifyEmail.aspx?token=fd65c62e05b640dbaafd8f9f435f8e28">https://localhost:44353/Account/VerifyEmail.aspx?token=fd65c62e05b640dbaafd8f9f435f8e28</a></p>
+
+================ 7/12/2026 11:05:33 AM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Your PrepReady sign-in code
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Your one-time sign-in code is <strong style='font-size:1.3em; letter-spacing:2px;'>217857</strong>.</p><p>It expires in 5 minutes. If you didn't try to sign in, you can ignore this email.</p>
+
+================ 7/12/2026 11:06:54 AM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Your PrepReady sign-in code
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Your one-time sign-in code is <strong style='font-size:1.3em; letter-spacing:2px;'>438255</strong>.</p><p>It expires in 5 minutes. If you didn't try to sign in, you can ignore this email.</p>
+
+================ 7/12/2026 11:07:00 AM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Your PrepReady sign-in code
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Your one-time sign-in code is <strong style='font-size:1.3em; letter-spacing:2px;'>094817</strong>.</p><p>It expires in 5 minutes. If you didn't try to sign in, you can ignore this email.</p>
+
+================ 7/12/2026 11:09:39 AM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Your PrepReady sign-in code
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Your one-time sign-in code is <strong style='font-size:1.3em; letter-spacing:2px;'>061106</strong>.</p><p>It expires in 5 minutes. If you didn't try to sign in, you can ignore this email.</p>
+
+================ 7/12/2026 11:11:23 AM ================
+TO: testy@gmail.com
+SUBJECT: Verify your PrepReady account
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Welcome to PrepReady, test!</p><p>Please verify your email by clicking the link below:</p><p><a href="https://localhost:44353/Account/VerifyEmail.aspx?token=82151340b2014ece95fd0bf48e539885">https://localhost:44353/Account/VerifyEmail.aspx?token=82151340b2014ece95fd0bf48e539885</a></p>
+
+================ 7/12/2026 3:10:05 PM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Your PrepReady sign-in code
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Your one-time sign-in code is <strong style='font-size:1.3em; letter-spacing:2px;'>570485</strong>.</p><p>It expires in 5 minutes. If you didn't try to sign in, you can ignore this email.</p>
+
+================ 7/12/2026 3:12:15 PM ================
+TO: mohamedafaz17@gmail.com
+SUBJECT: Your PrepReady sign-in code
+NOTE: SMTP DISABLED (log fallback)
+BODY:
+<p>Your one-time sign-in code is <strong style='font-size:1.3em; letter-spacing:2px;'>969310</strong>.</p><p>It expires in 5 minutes. If you didn't try to sign in, you can ignore this email.</p>
+

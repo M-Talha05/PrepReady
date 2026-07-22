@@ -1,0 +1,323 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="PrepReady.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PrepReady — Learn It. Prove It. Serve It.</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="<%: ResolveUrl("~/Content/prepready.css") %>" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server" ID="MainScriptManager" />
+
+        <a href="#mainContent" class="pr-skip-link">Skip to content</a>
+
+        <header>
+            <nav class="navbar navbar-expand-lg pr-navbar" aria-label="Primary">
+                <div class="container">
+                    <a class="navbar-brand d-flex align-items-center gap-2" href="<%: ResolveUrl("~/Default.aspx") %>">
+                        <svg width="38" height="38" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M32 3 L57 13 V31 C57 46 46 57 32 61 C18 57 7 46 7 31 V13 Z"
+                                fill="#ffffff" stroke="#e63946" stroke-width="2.5" />
+                            <polyline class="pr-pulse"
+                                points="14,34 24,34 28,23 34,45 38,34 50,34"
+                                fill="none" stroke="#0b1f3a" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span class="pr-brand-text">Prep<span class="pr-brand-accent">Ready</span></span>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#prNav" aria-controls="prNav"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="prNav">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+                            <li class="nav-item"><a class="nav-link" href="<%: ResolveUrl("~/Default.aspx") %>">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="<%: ResolveUrl("~/Courses/Catalogue.aspx") %>">Courses</a></li>
+                            <li class="nav-item"><a class="nav-link" href="<%: ResolveUrl("~/Registry/Index.aspx") %>">Registry</a></li>
+                            <li class="nav-item"><a class="nav-link" href="<%: ResolveUrl("~/Verify.aspx") %>">Verify</a></li>
+                            <li class="nav-item"><a class="nav-link" href="<%: ResolveUrl("~/Leaderboard.aspx") %>">Leaderboard</a></li>
+
+                            <%-- Shown when NOT logged in --%>
+                            <asp:PlaceHolder ID="phAnon" runat="server">
+                                <li class="nav-item"><a class="nav-link" href="<%: ResolveUrl("~/Account/Login.aspx") %>">Login</a></li>
+                                <li class="nav-item"><a class="btn pr-btn-accent ms-lg-2" href="<%: ResolveUrl("~/Account/Register.aspx") %>">Register</a></li>
+                            </asp:PlaceHolder>
+
+                            <%-- Shown when logged in --%>
+                            <asp:PlaceHolder ID="phAuth" runat="server" Visible="false">
+
+                                <%-- EX-4: notifications bell (Members/Admins; officers have no UserId) --%>
+                                <% if (Session["UserId"] != null)
+                                    {
+                                        int prUid = System.Convert.ToInt32(Session["UserId"]);
+                                        int prUnread = PrepReady.Helpers.NotificationService.CountUnread(prUid);
+                                        System.Data.DataTable prNotes = PrepReady.Helpers.NotificationService.GetRecent(prUid, 8);
+                                %>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link position-relative" href="#" id="prBell" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                                        <% if (prUnread > 0)
+                                            { %>
+                                        <span class="position-absolute translate-middle badge rounded-pill bg-danger"
+                                            style="top: 9px; left: 74%; font-size: .6rem;"><%= prUnread %></span>
+                                        <% } %>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end pr-note-menu" aria-labelledby="prBell">
+                                        <li class="dropdown-header d-flex justify-content-between align-items-center">
+                                            <span>Notifications</span>
+                                            <% if (prUnread > 0)
+                                                { %>
+                                            <a class="small fw-normal" href="<%= ResolveUrl("~/Member/Notifications.aspx?markall=1") %>">Mark all read</a>
+                                            <% } %>
+                                        </li>
+                                        <li>
+                                            <div class="pr-note-scroll">
+                                                <% if (prNotes.Rows.Count == 0)
+                                                    { %>
+                                                <div class="text-muted small text-center py-4">You're all caught up.</div>
+                                                <% }
+                                                    else
+                                                    {
+                                                        foreach (System.Data.DataRow prN in prNotes.Rows)
+                                                        {
+                                                            bool prRead = System.Convert.ToBoolean(prN["IsRead"]); %>
+                                                <a class="dropdown-item pr-note-item <%= prRead ? "" : "pr-note-unread" %>"
+                                                    href="<%= ResolveUrl("~/Member/Notifications.aspx?go=" + prN["NotificationId"]) %>">
+                                                    <div class="pr-note-title"><%= Server.HtmlEncode(prN["Title"].ToString()) %></div>
+                                                    <div class="pr-note-msg"><%= Server.HtmlEncode(prN["Message"].ToString()) %></div>
+                                                    <div class="pr-note-time"><%= System.Convert.ToDateTime(prN["CreatedDate"]).ToString("dd MMM, h:mm tt") %></div>
+                                                </a>
+                                                <% }
+                                                    } %>
+                                            </div>
+                                        </li>
+                                        <li class="pr-note-foot">
+                                            <a class="small" href="<%= ResolveUrl("~/Member/Notifications.aspx") %>">View all notifications</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <% } %>
+
+                                <%-- User menu (avatar + name -> dropdown) --%>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle pr-user-toggle d-flex align-items-center" href="#"
+                                        id="prUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <%-- EX-2: avatar --%>
+                                        <% string navAvatar = Session["AvatarPath"] as string;
+                                            if (string.IsNullOrEmpty(navAvatar) && Session["UserId"] != null)
+                                            {
+                                                navAvatar = PrepReady.Helpers.ProfileService.GetAvatarPath(System.Convert.ToInt32(Session["UserId"]));
+                                                Session["AvatarPath"] = navAvatar ?? "";
+                                            } %>
+                                        <% if (!string.IsNullOrEmpty(navAvatar))
+                                            { %>
+                                        <img src="<%= ResolveUrl(navAvatar) %>" alt="Your profile photo" class="pr-nav-avatar me-2"
+                                            style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;" />
+                                        <% }
+                                            else
+                                            { %>
+                                        <span class="pr-nav-avatar pr-nav-avatar-fallback me-2" aria-hidden="true"
+                                            style="width: 32px; height: 32px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                        </span>
+                                        <% } %>
+                                        <asp:Literal ID="litUser" runat="server" />
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end pr-user-menu" aria-labelledby="prUser">
+                                        <li>
+                                            <asp:HyperLink ID="lnkDash" runat="server" CssClass="dropdown-item" Text="Dashboard" /></li>
+
+                                        <%-- Members only --%>
+                                        <asp:PlaceHolder ID="phMember" runat="server" Visible="false">
+                                            <li><a class="dropdown-item" href="<%: ResolveUrl("~/Member/MyLearning.aspx") %>">My Learning</a></li>
+                                            <li><a class="dropdown-item" href="<%: ResolveUrl("~/Member/Rewards.aspx") %>">Rewards</a></li>
+                                            <li><a class="dropdown-item" href="<%: ResolveUrl("~/Member/Notifications.aspx") %>">Notifications</a></li>
+                                            <li><a class="dropdown-item" href="<%: ResolveUrl("~/Member/MyMessages.aspx") %>">My Messages</a></li>
+                                            <li><a class="dropdown-item" href="<%: ResolveUrl("~/Member/Profile.aspx") %>">My Profile</a></li>
+                                            <li><a class="dropdown-item" href="<%: ResolveUrl("~/Account/ChangePassword.aspx") %>">Change password</a></li>
+                                            <li><a class="dropdown-item" href="<%: ResolveUrl("~/Member/Security.aspx") %>">Security (2FA)</a></li>
+                                            <li><a class="dropdown-item" href="<%: ResolveUrl("~/Member/MyData.aspx") %>">My Data &amp; Privacy</a></li>
+                                        </asp:PlaceHolder>
+
+                                        <li>
+                                            <hr class="dropdown-divider" />
+                                        </li>
+                                        <li><a class="dropdown-item text-danger fw-semibold" href="<%: ResolveUrl("~/Account/Logout.aspx") %>">Logout</a></li>
+                                    </ul>
+                                </li>
+                            </asp:PlaceHolder>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main id="mainContent">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+        </main>
+
+        <footer class="pr-footer">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-4">
+                        <h2 class="h5 pr-footer-title">PrepReady</h2>
+                        <p class="pr-footer-text">
+                            A government-backed platform that teaches life-saving and preparedness
+                            skills, proves real competence, and enlists certified responders nationwide.
+                        </p>
+                        <p class="pr-tagline mb-0">Learn It. Prove It. Serve It.</p>
+                    </div>
+                    <div class="col-6 col-lg-2">
+                        <h3 class="h6 pr-footer-title">Explore</h3>
+                        <ul class="list-unstyled pr-footer-links">
+                            <li><a href="<%: ResolveUrl("~/Courses/Catalogue.aspx") %>">Courses</a></li>
+                            <li><a href="<%: ResolveUrl("~/Registry/Index.aspx") %>">Registry</a></li>
+                            <li><a href="<%: ResolveUrl("~/Verify.aspx") %>">Verify a Cert</a></li>
+                            <li><a href="<%: ResolveUrl("~/Leaderboard.aspx") %>">Leaderboard</a></li>
+                            <li><a href="<%: ResolveUrl("~/Contact.aspx") %>">Contact us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-lg-2">
+                        <h3 class="h6 pr-footer-title">Account</h3>
+                        <ul class="list-unstyled pr-footer-links">
+                            <li><a href="<%: ResolveUrl("~/Account/Login.aspx") %>">Login</a></li>
+                            <li><a href="<%: ResolveUrl("~/Account/Register.aspx") %>">Register</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <h3 class="h6 pr-footer-title">Endorsed by (mock)</h3>
+                        <p class="pr-footer-text">
+                            Ministry of Health · BOMBA · Civil Defence (APM) ·
+                            Royal Malaysia Police · CyberSecurity Malaysia
+                        </p>
+                    </div>
+                </div>
+                <br />
+                <p class="text-center pr-footer-legal mb-2">
+                    <a href="<%: ResolveUrl("~/Privacy.aspx") %>">Privacy</a> ·
+                    <a href="<%: ResolveUrl("~/Terms.aspx") %>">Terms</a> ·
+                    <a href="<%: ResolveUrl("~/Accessibility.aspx") %>">Accessibility</a> ·
+                    <a href="<%: ResolveUrl("~/Faq.aspx") %>">FAQ &amp; Help</a>
+                </p>
+                <hr class="pr-footer-rule" />
+                <p class="text-center pr-footer-copy mb-0">
+                    &copy;
+                    <asp:Literal ID="litYear" runat="server" />
+                    PrepReady — APU CT050-3-2-WAPP academic project. All agencies are mock data.
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <%-- ===== EX-12: idle-session timeout warning (logged-in users only) ===== --%>
+        <% if (!string.IsNullOrEmpty(Session["Role"] as string))
+            { %>
+        <div class="modal fade" id="prIdleModal" tabindex="-1" aria-labelledby="prIdleTitle"
+            aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title h5" id="prIdleTitle">Still there?</h2>
+                    </div>
+                    <div class="modal-body">
+                        <p class="mb-2">
+                            For your security, you'll be signed out due to inactivity in
+                            <strong id="prIdleCount">2:00</strong>.
+                        </p>
+                        <p class="text-muted small mb-0">
+                            Choose <strong>Stay signed in</strong> to keep working.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn pr-btn-outline" id="prIdleOut">Log out now</button>
+                        <button type="button" class="btn pr-btn-accent" id="prIdleStay">Stay signed in</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            (function () {
+                var TIMEOUT_MIN = 20;   // MUST match Web.config <sessionState timeout="20" />
+                var WARN_SEC = 120;     // show the warning this many seconds before expiry
+
+                //var TIMEOUT_MIN = 1; // Only for testing. Keep commented otherwise, MUST match Web.config <sessionState timeout="20" />
+                //var WARN_SEC = 40; // Only for testing. Keep commented otherwise.
+
+                var KEEPALIVE = '<%= ResolveUrl("~/KeepAlive.ashx") %>';
+                var LOGOUT_TIMEOUT = '<%= ResolveUrl("~/Account/Logout.aspx") %>?timeout=1';
+                var LOGOUT_NOW = '<%= ResolveUrl("~/Account/Logout.aspx") %>';
+
+                var modalEl = document.getElementById('prIdleModal');
+                if (!modalEl || typeof bootstrap === 'undefined') return;
+                var modal = new bootstrap.Modal(modalEl);
+                var countEl = document.getElementById('prIdleCount');
+
+                var expiresAt = Date.now() + TIMEOUT_MIN * 60 * 1000;
+                var warned = false, expired = false;
+
+                function fmt(s) {
+                    var m = Math.floor(s / 60), r = s % 60;
+                    return m + ':' + (r < 10 ? '0' : '') + r;
+                }
+
+                function resetClock() {
+                    expiresAt = Date.now() + TIMEOUT_MIN * 60 * 1000;
+                    warned = false;
+                    modal.hide();
+                }
+
+                function stay() {
+                    // Ping the server to reset the REAL session, then reset the local clock.
+                    try {
+                        fetch(KEEPALIVE, { method: 'GET', cache: 'no-store', credentials: 'same-origin' })
+                            .then(function (r) { return r.text(); })
+                            .then(function (t) {
+                                if (t.indexOf('ok') === -1) { window.location.href = LOGOUT_TIMEOUT; return; }
+                                resetClock();
+                            })
+                            .catch(function () { resetClock(); });
+                    } catch (e) { resetClock(); }
+                }
+
+                document.getElementById('prIdleStay').addEventListener('click', stay);
+                document.getElementById('prIdleOut').addEventListener('click', function () {
+                    window.location.href = LOGOUT_NOW;
+                });
+
+                setInterval(function () {
+                    var remain = Math.round((expiresAt - Date.now()) / 1000);
+                    if (remain <= 0) {
+                        if (expired) return;
+                        expired = true;
+                        window.location.href = LOGOUT_TIMEOUT;
+                        return;
+                    }
+                    if (remain <= WARN_SEC) {
+                        if (!warned) { warned = true; modal.show(); }
+                        if (countEl) countEl.textContent = fmt(remain);
+                    }
+                }, 1000);
+            })();
+        </script>
+        <% } %>
+    </form>
+</body>
+</html>
