@@ -1,0 +1,17 @@
+# Visual Studio / .NET build artifacts
+.vs/
+.vscode/
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.log
+*.tmp
+*.pdb
+*.mdb
+TestResults/
+
+# Local database files
+*.mdf
+*.ldf
